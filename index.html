@@ -23,9 +23,9 @@
 
 	<div class="container mb-5">
 		<div class="row">
+			<!-- Каталог -->
 			<div class="col-md-8">
 				<div class="row">
-
 					<!-- Товар -->
 					<div class="col-md-6">
 						<div class="card mb-4" data-id="01">
@@ -35,12 +35,14 @@
 								<p class="text-center ">Икринки кеты имеют крупный размер, светло-оранжевый насыщенный цвет и нежный сливочный вкус.</p>
 								<p><small data-items-in-box class="text-muted">1 шт.</small></p>
 
+								<!--Счетчик-->
 								<div class="details-wrapper">
 									<div class="items counter-wrapper">
-										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
-										<div class="items__control" data-action="plus">+</div>
+										<div class="items__control" id="minus" data-action="minus">-</div>
+										<div class="items__current" id="result-counter" data-counter>0</div>
+										<div class="items__control" id="plus"  data-action="plus">+</div>
 									</div>
+									<!--//Счетчик-->
 
 									<div class="price">
 										<div class="price__weight">500г.</div>
@@ -66,9 +68,9 @@
 
 								<div class="details-wrapper">
 									<div class="items counter-wrapper">
-										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
-										<div class="items__control" data-action="plus">+</div>
+										<div class="items__control" id="minus" data-action="minus">-</div>
+										<div class="items__current" id="result-counter" data-counter>1</div>
+										<div class="items__control" id="plus" data-action="plus">+</div>
 									</div>
 
 									<div class="price">
@@ -148,9 +150,9 @@
 
 				</div>
 			</div>
-			<div class="col-md-4">
 
-				<!-- Корзина -->
+			<!-- Корзина -->
+			<div class="col-md-4">
 				<div class="card mb-4">
 					<div class="card-body">
 						<h5 class="card-title">Ваш заказ</h4>
@@ -224,7 +226,7 @@
 	</div>
 
 	<!-- Подключаем скрипты -->
-
+	<script src="./js/counter.js"></script>
 </body>
 
 </html>
