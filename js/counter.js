@@ -1,19 +1,22 @@
 document.body.addEventListener('click', (event) => {
 
-  if (event.target.dataset.action === 'plus') {
-   const currentCounter = event.target.closest('.js-counter');
+  //Проверка что клик был по кнопке + или минус
+  if (event.target.dataset.action === 'plus' || event.target.dataset.action === 'minus') {
 
-   currentCounter.querySelector('#result-counter').innerHTML++
+      //находим блок в котором произошел клик
+    const currentCounter = event.target.closest('.js-counter');//ищем ближайший к нажатой кнопке, элемент .js-counter 
 
-  }
-  else if (event.target.dataset.action === 'minus') {
-    const currentCounter = event.target.closest('.js-counter');
-    let counterInner = currentCounter.querySelector('#result-counter');
+    let counterInner = currentCounter.querySelector('#result-counter');//выбираем поле счетчика, в котором нужно изменить значение
 
-    if (Number(counterInner.innerHTML) > 0) {      
-      counterInner.innerHTML--;
-    }   
-  }
+    if (event.target.dataset.action === 'plus') {
+      counterInner.innerHTML++
+    }
+    else if (event.target.dataset.action === 'minus') {
+      if (Number(counterInner.innerHTML) > 0) {      
+        counterInner.innerHTML--;
+      }   
+    }
+  } 
 })
 
 
