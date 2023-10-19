@@ -24,7 +24,7 @@
 	<div class="container mb-5">
 		<div class="row">
 			<!-- Каталог -->
-			<div class="col-md-8">
+			<div class="col-md-8 js-catalog">
 				<div class="row">
 					<!-- Товар -->
 					<div class="col-md-6">
@@ -162,42 +162,11 @@
 				<div class="card mb-4">
 					<div class="card-body">
 						<h5 class="card-title">Ваш заказ</h4>
-						<div data-cart-empty class="alert alert-secondary" role="alert">
+						<div data-cart-empty class="alert alert-secondary js-empty-cart" role="alert">
 							Корзина пуста
 						</div>
 						<!-- cart-wrapper -->
 						<div class="cart-wrapper js-cart-wrapper">
-
-							<!-- Cart item -->
-							<div class="cart-item js-cart-item" data-id="02">
-								<div class="cart-item__top">
-									<div class="cart-item__img">
-										<img src="img/caviar/nerka.jpg" alt="">
-									</div>
-									<div class="cart-item__desc ">
-										<div class="cart-item__title">Икра нерки</div>
-										<div class="cart-item__weight">6 шт. / 205г.</div>
-
-										<!-- cart-item__details -->
-										<div class="cart-item__details">
-
-											<div class="items items--small counter-wrapper">
-												<div class="items__control" data-action="minus">-</div>
-												<div class="items__current js-result-counter" data-counter="">1</div>
-												<div class="items__control" data-action="plus">+</div>
-											</div>
-
-											<div class="price">
-												<div class="price__currency js-price">250 ₽</div>
-											</div>
-
-										</div>
-										<!-- // cart-item__details -->
-
-									</div>
-								</div>
-							</div>
-							<!-- // Cart item -->
 
 						</div>
 						<!-- // cart-wrapper -->
@@ -205,14 +174,14 @@
 						<!-- Стоимость заказа -->
 						<div class="cart-total">
 							<p><span class="h5">Доставка:</span> <span class="delivery-cost free">бесплатно</span> </p>
-							<p><span class="h5">Итого:</span> <span class="total-price">330</span> <span class="rouble">₽</span></p>
+							<p><span class="h5">Итого:</span> <span class="total-price js-total-price">0</span> <span class="rouble">₽</span></p>
 						</div>
 						<!-- // Стоимость заказа -->
 
 					</div>
 
 					<!-- Оформить заказ -->
-					<div id="order-form" class="card-body border-top">
+					<div id="order-form" class="card-body border-top js-ordered-list ordered-list">
 						<h5 class="card-title">Оформить заказ</h4>
 						<form>
 							<div class="form-group">
@@ -232,8 +201,8 @@
 	</div>
 
 	<!-- Подключаем скрипты -->
-	<script src="./js/counter.js"></script>
-	<script src="./js/cart.js"></script>
+	<script type="module" src="./js/counter.js"></script>
+	<script type="module" src="./js/cart.js"></script>
 
 </body>
 

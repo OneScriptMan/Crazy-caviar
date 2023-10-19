@@ -1,10 +1,12 @@
-cartItems = document.querySelector('.js-cart-wrapper')
+import { cartExamination, cartCalc } from './utils.js';
+
+const cartItems = document.querySelector('.js-cart-wrapper')
 
 
 document.body.addEventListener('click', (event) => {
   if(event.target.hasAttribute('data-cart')){
     const currentCard = event.target.closest('.js-card');
-    
+ 
     const productInfo ={
       id: currentCard.dataset.id,
       img: currentCard.querySelector('.js-img').getAttribute('src'),
@@ -14,8 +16,16 @@ document.body.addEventListener('click', (event) => {
       price: currentCard.querySelector('.js-price').innerHTML,
       counter: currentCard.querySelector('.js-result-counter').innerHTML
     }
+    console.log(productInfo.price);
 
-    const cartItemHTML = `
+    const itemInCart = cartItems.querySelector(`[data-id="${productInfo.id}"]`);
+
+    if (itemInCart) {
+      const sum = itemInCart.querySelector('.js-result-counter');
+      sum.innerHTML = Number(sum.innerHTML) + Number(productInfo.counter)
+    }
+    else {
+      const cartItemHTML = `
     <div class="cart-item js-cart-item" data-id="${productInfo.id}">
 								<div class="cart-item__top">
 									<div class="cart-item__img">
@@ -49,10 +59,41 @@ document.body.addEventListener('click', (event) => {
       }
       else {
       
-        cartItems.insertAdjacentHTML('beforeend', cartItemHTML)
-       
+        cartItems.insertAdjacentHTML('beforeend', cartItemHTML);
+     
       }
-      
+      cartExamination();
+    }     
+    
+
+    let counterInner = currentCard.querySelector('#result-counter');
+    cartCalc();
+    counterInner.innerHTML = '0';   
+  } 
+})
+
+cartItems.addEventListener('click', (event) => {
+  //Проверка что клик был по кнопке + или минус
+  if (event.target.dataset.action === 'plus' || event.target.dataset.action === 'minus') {
+
+    //находим блок в котором произошел клик
+  const currentCounter = event.target.closest('.counter-wrapper');//ищем ближайший к нажатой кнопке, элемент .js-counter 
+
+  let counterInner = currentCounter.querySelector('.js-result-counter');//выбираем поле счетчика, в котором нужно изменить значение
+
+  if (event.target.dataset.action === 'plus') {
+    counterInner.innerHTML++
   }
-  
+  else if (event.target.dataset.action === 'minus') {
+    if (Number(counterInner.innerHTML) > 0) {      
+      counterInner.innerHTML--;
+      if (Number(counterInner.innerHTML) === 0){
+        let target = event.target.closest('.js-cart-item');
+        target.remove();
+        cartExamination();
+      }
+    }   
+  }
+} 
+cartCalc();
 })

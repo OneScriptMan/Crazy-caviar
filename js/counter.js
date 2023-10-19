@@ -1,4 +1,8 @@
-document.body.addEventListener('click', (event) => {
+import {cartExamination} from './utils.js';
+
+let catalog = document.querySelector('.js-catalog');
+
+catalog.addEventListener('click', (event) => {
 
   //Проверка что клик был по кнопке + или минус
   if (event.target.dataset.action === 'plus' || event.target.dataset.action === 'minus') {

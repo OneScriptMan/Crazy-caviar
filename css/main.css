@@ -172,6 +172,10 @@ h3, h4 {
 	font-weight: 500;
 }
 
+.ordered-list{
+	display: none;
+}
+
 .delivery-cost {
 
 }
