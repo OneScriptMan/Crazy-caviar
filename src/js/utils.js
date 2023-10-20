@@ -3,6 +3,8 @@ export function cartExamination() {
   const emptyCart = document.querySelector('.js-empty-cart');
   const orderedList = document.querySelector('.js-ordered-list');
   const length = cartWrapper.children.length;
+  let deliveryCost = document.querySelector('.js-delivery-cost');
+  const totalPrice = document.querySelector('.js-total-price');
 
   if (length > 0) {
     emptyCart.style.display = 'none';
@@ -11,6 +13,8 @@ export function cartExamination() {
   else {
     emptyCart.style.display = 'block';
     orderedList.style.display = 'none';
+    deliveryCost.innerHTML = '';
+    totalPrice.innerHTML = '0';
   }
 }
 
@@ -26,5 +30,16 @@ export function cartCalc() {
     const price = cartWrapper.children[i].querySelector('.js-price');
     sum += Number(counter.innerHTML) * parseInt(price.innerHTML);
   }
-  totalPrice.innerHTML = sum;
+
+  if (sum < 6000) {
+    let deliveryCost = document.querySelector('.js-delivery-cost');
+    deliveryCost.innerHTML = "500 ₽";
+    totalPrice.innerHTML = sum + parseInt(deliveryCost.innerHTML);
+  }
+  else if (sum >= 6000){
+    let deliveryCost = document.querySelector('.js-delivery-cost');
+    deliveryCost.innerHTML = "бесплатно";
+    totalPrice.innerHTML = sum;
+  }
+
 }

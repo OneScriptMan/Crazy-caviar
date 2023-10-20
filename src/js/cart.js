@@ -83,6 +83,7 @@ cartItems.addEventListener('click', (event) => {
 
   if (event.target.dataset.action === 'plus') {
     counterInner.innerHTML++
+    cartCalc();
   }
   else if (event.target.dataset.action === 'minus') {
     if (Number(counterInner.innerHTML) > 0) {      
@@ -93,7 +94,10 @@ cartItems.addEventListener('click', (event) => {
         cartExamination();
       }
     }   
+    cartCalc();
   }
+  
 } 
 cartCalc();
+cartExamination();
 })

@@ -1,4 +1,4 @@
-import {cartExamination} from './utils.js';
+import {cartExamination, cartCalc} from './utils.js';
 
 let catalog = document.querySelector('.js-catalog');
 
@@ -21,6 +21,7 @@ catalog.addEventListener('click', (event) => {
       }   
     }
   } 
+  cartCalc();
 })
 
 
