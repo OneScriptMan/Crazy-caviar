@@ -22,6 +22,7 @@ catalog.addEventListener('click', (event) => {
     }
   } 
   cartCalc();
+  cartExamination();
 })
 
 

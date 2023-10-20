@@ -41,5 +41,10 @@ export function cartCalc() {
     deliveryCost.innerHTML = "бесплатно";
     totalPrice.innerHTML = sum;
   }
+  else if (sum < 1000){
+    let deliveryCost = document.querySelector('.js-delivery-cost');
+    deliveryCost.innerHTML = '';
+    totalPrice.innerHTML = '';
+  }
 
 }
